@@ -1,7 +1,7 @@
 <?php
 // Menentukan base path untuk link
 $current_dir = dirname($_SERVER['PHP_SELF']);
-$project_root = '/project_root'; // Sesuaikan dengan nama folder project di server
+$project_root = '/Trash2cash'; // Sesuaikan dengan nama folder project di server
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -16,9 +16,11 @@ $project_root = '/project_root'; // Sesuaikan dengan nama folder project di serv
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand ps-4" href="<?php echo $project_root; ?>">BrandKu</a>
+    <a class="navbar-brand ps-4" href="<?php echo $project_root; ?>">
+      <img src="../assets/images/logo-brand.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
     </button>
@@ -63,14 +65,14 @@ $project_root = '/project_root'; // Sesuaikan dengan nama folder project di serv
 
 <style>
   .navbar-custom {
-    background-color: #444444; /* Warna abu-abu gelap */
+    background-color: #0e603c; /* Warna abu-abu gelap */
   }
   .navbar-custom .nav-link,
   .navbar-custom .navbar-brand {
     color: #fff; /* Teks putih */
   }
   .navbar-custom .nav-link:hover {
-    color: #f0e68c; /* Hover sedikit kuning */
+    color:rgb(255, 195, 93); /* Hover sedikit kuning */
   }
 </style>
 
