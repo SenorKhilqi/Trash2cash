@@ -98,6 +98,7 @@
             <li><a href="history.php">Riwayat</a></li>
             <li><a href="tukar_poin.php">Tukar Poin</a></li>
             <li><a href="profil_user.php">Profil</a></li>
+            <li><a href="card_generator.php">Cetak Kartu</a></li>
             <li><a href="../logout.php">Logout</a></li>
         </ul>
     </nav>
