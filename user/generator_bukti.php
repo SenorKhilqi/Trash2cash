@@ -4,7 +4,7 @@ require_once '../config/db_connection.php';
 
 // Pastikan user sudah login
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'user') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 
@@ -224,7 +224,7 @@ $tanggal_cetak = date('d-m-Y H:i');
     <?php if (!empty($row['foto'])): ?>
     <div class="info-section photo-section">
         <h2>Bukti Foto</h2>
-        <img src="/project_root/uploads/<?= htmlspecialchars($row['foto']) ?>" alt="Bukti Foto">
+        <img src="uploads/<?= htmlspecialchars($row['foto']) ?>" alt="Bukti Foto">
     </div>
     <?php endif; ?>
     

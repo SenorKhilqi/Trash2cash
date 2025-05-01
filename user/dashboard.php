@@ -5,7 +5,7 @@ include_once '../libs/template_engine.php';
 
 // Pastikan user sudah login
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'user') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 
@@ -16,6 +16,17 @@ $user_query = $conn->prepare("SELECT id FROM users WHERE username = ?");
 $user_query->bind_param("s", $username);
 $user_query->execute();
 $user_result = $user_query->get_result();
+
+$user_id_yang_sedang_login = $_SESSION['user_id'];
+$total_poin_user = mysqli_query($conn, 
+"
+SELECT SUM(poin) AS total_poin, user_id 
+FROM `penukaran_poin` 
+WHERE user_id='$user_id_yang_sedang_login' 
+GROUP BY user_id;
+");
+$total_poin = mysqli_fetch_array($total_poin_user);
+
 
 if ($user_row = $user_result->fetch_assoc()) {
     $user_id = $user_row['id'];
@@ -51,7 +62,7 @@ if ($user_row = $user_result->fetch_assoc()) {
     $total_transactions = $transactions_row['total_transactions'] ?: 0;
 } else {
     echo "<script>alert('User tidak ditemukan!');</script>";
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 

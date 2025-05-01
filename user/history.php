@@ -5,7 +5,7 @@ include_once '../libs/template_engine.php';
 
 // Pastikan user sudah login dan memiliki role user
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'user') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 
@@ -58,7 +58,7 @@ if ($user_row = $user_result->fetch_assoc()) {
     $stats_result = $stats_stmt->get_result();
 } else {
     echo "<script>alert('User tidak ditemukan!');</script>";
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 
@@ -472,8 +472,8 @@ renderTemplate('user', 'navbar');
                     <td><strong><?= htmlspecialchars($row['total_point']) ?></strong></td>
                     <td>
                         <?php if (!empty($row['foto'])): ?>
-                            <img class="thumbnail" src="/project_root/uploads/<?= htmlspecialchars($row['foto']) ?>" 
-                                 onclick="window.open('/project_root/uploads/<?= htmlspecialchars($row['foto']) ?>', '_blank')">
+                            <img class="thumbnail" src="uploads/<?= htmlspecialchars($row['foto']) ?>" 
+                                 onclick="window.open('uploads/<?= htmlspecialchars($row['foto']) ?>', '_blank')">
                         <?php else: ?>
                             Tidak ada foto
                         <?php endif; ?>
@@ -496,7 +496,7 @@ renderTemplate('user', 'navbar');
     <?php else: ?>
     <div class="empty-state">
         <p>Belum ada riwayat pengumpulan sampah.</p>
-        <a href="/project_root/user/lapor_sampah.php" class="report-button">Laporkan Sampah Sekarang</a>
+        <a href="user/lapor_sampah.php" class="report-button">Laporkan Sampah Sekarang</a>
     </div>
     <?php endif; ?>
 </div>

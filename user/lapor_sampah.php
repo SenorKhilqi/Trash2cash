@@ -5,7 +5,7 @@ session_start();
 
 // Cek apakah user sudah login dan memiliki role user
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'user') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit;
 }
 

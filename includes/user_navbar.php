@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>Sidebar Hide Show</title>
@@ -71,7 +72,7 @@
         }
 
         /* Saat sidebar ditutup */
-        #sidebar.closed + #toggle-btn {
+        #sidebar.closed+#toggle-btn {
             left: 10px;
         }
 
@@ -82,55 +83,57 @@
             transition: all 0.3s ease;
         }
 
-        #sidebar.closed ~ #content {
+        #sidebar.closed~#content {
             margin-left: 20px;
         }
     </style>
 </head>
+
 <body>
 
-<nav id="sidebar">
-    <ul>
-        <li><a href="/project_root/user/dashboard.php">Dashboard</a></li>
-        <li><a href="/project_root/user/lapor_sampah.php">Lapor Sampah</a></li>
-        <li><a href="/project_root/user/history.php">Riwayat</a></li>
-        <li><a href="/project_root/user/tukar_poin.php">Tukar Poin</a></li>
-        <li><a href="/project_root/user/profil_user.php">Profil</a></li>
-        <li><a href="/project_root/logout.php">Logout</a></li>
-    </ul>
-</nav>
+    <nav id="sidebar">
+        <ul>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="lapor_sampah.php">Lapor Sampah</a></li>
+            <li><a href="history.php">Riwayat</a></li>
+            <li><a href="tukar_poin.php">Tukar Poin</a></li>
+            <li><a href="profil_user.php">Profil</a></li>
+            <li><a href="../logout.php">Logout</a></li>
+        </ul>
+    </nav>
 
-<!-- Tombol Toggle -->
-<button id="toggle-btn">&#9776;</button>
+    <!-- Tombol Toggle -->
+    <button id="toggle-btn">&#9776;</button>
 
-<!-- Main Content -->
-<div id="content">
-    <!-- Content akan diisi oleh halaman yang menggunakan navbar ini -->
-</div>
+    <!-- Main Content -->
+    <div id="content">
+        <!-- Content akan diisi oleh halaman yang menggunakan navbar ini -->
+    </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const sidebar = document.getElementById('sidebar');
-        const toggleBtn = document.getElementById('toggle-btn');
-        const content = document.getElementById('content');
-        
-        // Fungsi untuk toggle sidebar
-        toggleBtn.addEventListener('click', function() {
-            sidebar.classList.toggle('closed');
-            
-            // Animasi pergerakan konten
-            if(sidebar.classList.contains('closed')) {
-                // Sidebar tertutup, konten bergeser ke kiri
-                content.style.marginLeft = '20px';
-                toggleBtn.style.left = '10px';
-            } else {
-                // Sidebar terbuka, konten bergeser ke kanan
-                content.style.marginLeft = '260px';
-                toggleBtn.style.left = '260px';
-            }
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('toggle-btn');
+            const content = document.getElementById('content');
+
+            // Fungsi untuk toggle sidebar
+            toggleBtn.addEventListener('click', function () {
+                sidebar.classList.toggle('closed');
+
+                // Animasi pergerakan konten
+                if (sidebar.classList.contains('closed')) {
+                    // Sidebar tertutup, konten bergeser ke kiri
+                    content.style.marginLeft = '20px';
+                    toggleBtn.style.left = '10px';
+                } else {
+                    // Sidebar terbuka, konten bergeser ke kanan
+                    content.style.marginLeft = '260px';
+                    toggleBtn.style.left = '260px';
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
+
 </html>

@@ -5,7 +5,7 @@ include_once '../libs/template_engine.php';
 
 // Pastikan user sudah login
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'user') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 

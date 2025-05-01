@@ -5,7 +5,7 @@ include_once '../libs/template_engine.php';
 
 // Cek apakah user sudah login dan role-nya admin
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 

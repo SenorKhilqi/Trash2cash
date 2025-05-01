@@ -4,15 +4,17 @@ include_once '../libs/template_engine.php';
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metodologi Trash2Cash</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
         /* Global Styles */
         body {
@@ -21,16 +23,21 @@ include_once '../libs/template_engine.php';
             background-color: #f8f9fa;
             line-height: 1.6;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-weight: 600;
             color: #212529;
         }
-        
+
         .section {
             padding: 80px 0;
         }
-        
+
         .section-title {
             text-align: center;
             font-weight: 700;
@@ -39,7 +46,7 @@ include_once '../libs/template_engine.php';
             padding-bottom: 15px;
             color: #28a745;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -51,20 +58,20 @@ include_once '../libs/template_engine.php';
             background-color: #28a745;
             border-radius: 2px;
         }
-        
+
         /* Hero Section */
         .hero-section-small {
             padding: 100px 0 60px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             margin-bottom: 0;
         }
-        
+
         .hero-section-small h1 {
             font-weight: 700;
             margin-bottom: 1.5rem;
             font-size: 3rem;
         }
-        
+
         /* Progress Tracker */
         .progress-tracker {
             background-color: #28a745;
@@ -72,20 +79,20 @@ include_once '../libs/template_engine.php';
             position: relative;
             margin-bottom: 80px;
         }
-        
+
         .progress-tracker .row {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .progress-step {
             text-align: center;
             position: relative;
             flex: 1;
             max-width: 20%;
         }
-        
+
         .progress-step small {
             color: white;
             display: block;
@@ -93,7 +100,7 @@ include_once '../libs/template_engine.php';
             font-weight: 500;
             font-size: 0.9rem;
         }
-        
+
         .step-number {
             width: 40px;
             height: 40px;
@@ -107,23 +114,23 @@ include_once '../libs/template_engine.php';
             margin: 0 auto;
             position: relative;
             z-index: 2;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-        
+
         .progress-step.active .step-number {
             background-color: #ffc107;
             color: #212529;
             transform: scale(1.2);
         }
-        
+
         /* Timeline */
         .timeline {
             position: relative;
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .timeline::before {
             content: '';
             position: absolute;
@@ -135,7 +142,7 @@ include_once '../libs/template_engine.php';
             margin-left: -2px;
             border-radius: 4px;
         }
-        
+
         .timeline-item {
             padding: 20px 40px 20px 80px;
             position: relative;
@@ -143,7 +150,7 @@ include_once '../libs/template_engine.php';
             width: 100%;
             margin-bottom: 30px;
         }
-        
+
         .timeline-number {
             position: absolute;
             width: 50px;
@@ -157,48 +164,48 @@ include_once '../libs/template_engine.php';
             font-weight: bold;
             z-index: 1;
             left: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .timeline-content {
             padding: 20px 30px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             position: relative;
         }
-        
+
         .timeline-content h3 {
             margin-top: 0;
             color: #28a745;
             font-weight: 600;
             font-size: 1.4rem;
         }
-        
+
         .timeline-list {
             padding-left: 20px;
         }
-        
+
         .timeline-list li {
             margin-bottom: 8px;
             position: relative;
         }
-        
+
         /* Standard Cards */
         .standard-card {
             background-color: white;
             border-radius: 10px;
             padding: 30px;
             height: 100%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .standard-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .icon-circle {
             width: 80px;
             height: 80px;
@@ -209,29 +216,29 @@ include_once '../libs/template_engine.php';
             justify-content: center;
             margin: 0 auto 20px;
         }
-        
+
         .icon-circle i {
             font-size: 32px;
         }
-        
+
         .standard-card h4 {
             text-align: center;
             margin-bottom: 15px;
             color: #333;
             font-weight: 600;
         }
-        
+
         .standard-card p {
             text-align: center;
             color: #6c757d;
         }
-        
+
         .details {
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px dashed #dee2e6;
         }
-        
+
         /* FAQ Accordion */
         .accordion-item {
             margin-bottom: 15px;
@@ -239,63 +246,63 @@ include_once '../libs/template_engine.php';
             overflow: hidden;
             border: 1px solid #e9ecef;
         }
-        
+
         .accordion-button {
             font-weight: 600;
             padding: 15px 20px;
             background-color: white;
             color: #333;
         }
-        
+
         .accordion-button:not(.collapsed) {
             background-color: #e8f5e9;
             color: #28a745;
         }
-        
+
         .accordion-button:focus {
             box-shadow: none;
             border-color: rgba(40, 167, 69, 0.25);
         }
-        
+
         .accordion-body {
             padding: 20px;
             background-color: white;
         }
-        
+
         /* Responsive Adjustments */
         @media (max-width: 991px) {
             .section {
                 padding: 60px 0;
             }
-            
+
             .hero-section-small {
                 padding: 80px 0 40px;
             }
-            
+
             .hero-section-small h1 {
                 font-size: 2.5rem;
             }
-            
+
             .timeline::before {
                 left: 31px;
             }
         }
-        
+
         @media (max-width: 767px) {
             .progress-tracker {
                 padding: 20px 0;
                 margin-bottom: 40px;
                 overflow-x: auto;
             }
-            
+
             .progress-step {
                 min-width: 100px;
             }
-            
+
             .timeline-item {
                 padding: 15px 15px 15px 60px;
             }
-            
+
             .timeline-number {
                 width: 40px;
                 height: 40px;
@@ -303,44 +310,44 @@ include_once '../libs/template_engine.php';
                 font-size: 16px;
                 left: 5px;
             }
-            
+
             .timeline-content {
                 padding: 15px;
             }
-            
+
             .timeline::before {
                 left: 24px;
             }
-            
+
             .hero-section-small h1 {
                 font-size: 2rem;
             }
-            
+
             .section-title {
                 font-size: 1.8rem;
             }
         }
-        
+
         @media (max-width: 575px) {
             .progress-tracker .row {
                 flex-wrap: nowrap;
                 margin: 0;
             }
-            
+
             .progress-step small {
                 font-size: 0.7rem;
             }
-            
+
             .step-number {
                 width: 30px;
                 height: 30px;
                 font-size: 14px;
             }
-            
+
             .timeline::before {
                 left: 19px;
             }
-            
+
             .timeline-number {
                 width: 30px;
                 height: 30px;
@@ -348,7 +355,7 @@ include_once '../libs/template_engine.php';
                 font-size: 14px;
                 left: 4px;
             }
-            
+
             .timeline-item {
                 padding: 10px 10px 10px 50px;
             }
@@ -356,6 +363,7 @@ include_once '../libs/template_engine.php';
     </style>
 
 </head>
+
 <body>
     <?php include '../includes/home_navbar.php'; ?>
     <!-- Methodology Hero Section -->
@@ -364,7 +372,8 @@ include_once '../libs/template_engine.php';
             <div class="row">
                 <div class="col-md-8 mx-auto text-center">
                     <h1 class="text-success mb-4">Metodologi</h1>
-                    <p class="lead">Sistem dan proses pengelolaan sampah berbasis digital dengan insentif untuk mendorong partisipasi masyarakat</p>
+                    <p class="lead">Sistem dan proses pengelolaan sampah berbasis digital dengan insentif untuk
+                        mendorong partisipasi masyarakat</p>
                 </div>
             </div>
         </div>
@@ -485,18 +494,21 @@ include_once '../libs/template_engine.php';
                             <h3 class="card-title text-success mb-4">Mekanisme Penghargaan</h3>
                             <div class="d-flex align-items-start mb-3">
                                 <div class="me-3">
-                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 40px; height: 40px;">
                                         <i class="fas fa-coins"></i>
                                     </div>
                                 </div>
                                 <div>
                                     <h5>Perolehan Poin</h5>
-                                    <p>Setiap jenis sampah memiliki nilai poin berbeda berdasarkan berat dan kategori</p>
+                                    <p>Setiap jenis sampah memiliki nilai poin berbeda berdasarkan berat dan kategori
+                                    </p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
                                 <div class="me-3">
-                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 40px; height: 40px;">
                                         <i class="fas fa-exchange-alt"></i>
                                     </div>
                                 </div>
@@ -507,7 +519,8 @@ include_once '../libs/template_engine.php';
                             </div>
                             <div class="d-flex align-items-start">
                                 <div class="me-3">
-                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 40px; height: 40px;">
                                         <i class="fas fa-trophy"></i>
                                     </div>
                                 </div>
@@ -536,31 +549,36 @@ include_once '../libs/template_engine.php';
                     </h3>
                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Anda dapat menggunakan fitur peta pada aplikasi Trash2Cash untuk menemukan lokasi drop point terdekat dari lokasi Anda.
+                            Anda dapat menggunakan fitur peta pada aplikasi Trash2Cash untuk menemukan lokasi drop point
+                            terdekat dari lokasi Anda.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
                             Apa saja jenis sampah yang dapat ditukarkan dengan poin?
                         </button>
                     </h3>
                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Jenis sampah yang dapat ditukarkan meliputi sampah plastik (botol, kemasan), sampah kertas dan kardus, serta sampah logam dan kaleng.
+                            Jenis sampah yang dapat ditukarkan meliputi sampah plastik (botol, kemasan), sampah kertas
+                            dan kardus, serta sampah logam dan kaleng.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h3 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
                             Bagaimana cara menukarkan poin yang sudah dikumpulkan?
                         </button>
                     </h3>
                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Poin dapat ditukarkan melalui menu "Tukar Poin" di aplikasi. Anda dapat memilih berbagai opsi penukaran seperti uang elektronik, voucher belanja, atau donasi.
+                            Poin dapat ditukarkan melalui menu "Tukar Poin" di aplikasi. Anda dapat memilih berbagai
+                            opsi penukaran seperti uang elektronik, voucher belanja, atau donasi.
                         </div>
                     </div>
                 </div>
@@ -568,7 +586,6 @@ include_once '../libs/template_engine.php';
         </div>
     </section>
     <!-- JavaScript Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
@@ -577,7 +594,8 @@ include_once '../libs/template_engine.php';
             once: true
         });
     </script>
-    
+
     <?php include '../includes/home_footer.php'; ?>
 </body>
+
 </html>

@@ -5,7 +5,7 @@ include_once '../libs/template_engine.php';
 
 // Pastikan user sudah login dan memiliki role user
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'user') {
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 
@@ -83,7 +83,7 @@ if ($user_row = $user_result->fetch_assoc()) {
     }
 } else {
     echo "<script>alert('User tidak ditemukan!');</script>";
-    header("Location: /project_root/public/login.php");
+    header("Location: public/login.php");
     exit();
 }
 

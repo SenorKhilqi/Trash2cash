@@ -91,11 +91,11 @@
 
 <nav id="sidebar">
     <ul>
-        <li><a href="/project_root/admin/dashboard.php">Dashboard Admin</a></li>
-        <li><a href="/project_root/admin/other_admin_pages.php">Pengguna</a></li>
-        <li><a href="/project_root/admin/verifikasi_laporan.php">Data Sampah</a></li>
-        <li><a href="/project_root/admin/profil_admin.php">Profil</a></li>
-        <li><a href="/project_root/logout.php">Logout</a></li>
+        <li><a href="dashboard.php">Dashboard Admin</a></li>
+        <li><a href="other_admin_pages.php">Pengguna</a></li>
+        <li><a href="verifikasi_laporan.php">Data Sampah</a></li>
+        <li><a href="profil_admin.php">Profil</a></li>
+        <li><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 

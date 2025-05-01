@@ -1,12 +1,11 @@
 <?php
 // Path relatif yang benar ke template_engine.php
 include_once '../libs/template_engine.php';
-
-renderTemplate('home', 'navbar');
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +13,18 @@ renderTemplate('home', 'navbar');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
         /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
             color: #333;
         }
-        
+
         .section {
             padding: 80px 0;
         }
-        
+
         .section-title {
             text-align: center;
             color: #198754;
@@ -33,7 +32,7 @@ renderTemplate('home', 'navbar');
             position: relative;
             font-weight: 700;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -44,41 +43,41 @@ renderTemplate('home', 'navbar');
             height: 4px;
             background-color: #198754;
         }
-        
+
         /* Hero Section */
         .hero-section-small {
             padding: 80px 0;
             background-color: #f8f9fa;
             position: relative;
         }
-        
+
         /* Content Cards */
         .content-card {
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             padding: 30px;
             height: 100%;
             transition: all 0.3s ease;
         }
-        
+
         .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
-        
+
         /* Mission List */
         .mission-list {
             list-style: none;
             padding-left: 0;
         }
-        
+
         .mission-list li {
             padding: 8px 0;
             position: relative;
             padding-left: 28px;
         }
-        
+
         .mission-list li::before {
             content: '\f00c';
             font-family: 'Font Awesome 5 Free';
@@ -88,13 +87,13 @@ renderTemplate('home', 'navbar');
             left: 0;
             top: 8px;
         }
-        
+
         /* Timeline */
         .timeline {
             position: relative;
             padding: 40px 0;
         }
-        
+
         .timeline::before {
             content: '';
             position: absolute;
@@ -105,25 +104,25 @@ renderTemplate('home', 'navbar');
             left: 50%;
             margin-left: -2px;
         }
-        
+
         .timeline-item {
             margin-bottom: 50px;
             position: relative;
             width: 100%;
         }
-        
+
         .timeline-item:nth-child(even) {
             left: 50%;
             padding-left: 40px;
             padding-right: 0;
         }
-        
+
         .timeline-item:nth-child(odd) {
             left: 0;
             padding-right: 40px;
             text-align: right;
         }
-        
+
         .timeline-badge {
             position: absolute;
             top: 0;
@@ -139,113 +138,119 @@ renderTemplate('home', 'navbar');
             justify-content: center;
             z-index: 1;
         }
-        
+
         .timeline-item:nth-child(even) .timeline-badge {
             left: -20px;
         }
-        
+
         .timeline-item:nth-child(odd) .timeline-badge {
             right: -20px;
         }
-        
+
         .date {
             font-size: 18px;
             font-weight: bold;
             line-height: 1;
         }
-        
-        .month, .year {
+
+        .month,
+        .year {
             font-size: 12px;
             line-height: 1;
         }
-        
+
         .timeline-content {
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* Statistics Section */
         .stat-card {
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             padding: 30px 15px;
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
-        
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: #198754;
             margin-bottom: 10px;
         }
-        
+
         .stat-label {
             font-size: 1rem;
             color: #6c757d;
         }
-        
+
         /* Impact List */
         .impact-list {
             margin-top: 30px;
         }
-        
+
         .impact-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 20px;
         }
-        
+
         .impact-item i {
             font-size: 24px;
             margin-right: 15px;
             margin-top: 2px;
         }
-        
+
         /* Custom Card */
         .card {
             transition: all 0.3s ease;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
         }
-        
+
         /* Responsive Media Queries */
         @media (max-width: 991px) {
             .timeline::before {
                 left: 31px;
             }
-            
-            .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
+
+            .timeline-item:nth-child(even),
+            .timeline-item:nth-child(odd) {
                 left: 0;
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 0;
                 text-align: left;
             }
-            
-            .timeline-item:nth-child(even) .timeline-badge, .timeline-item:nth-child(odd) .timeline-badge {
+
+            .timeline-item:nth-child(even) .timeline-badge,
+            .timeline-item:nth-child(odd) .timeline-badge {
                 left: 0;
             }
         }
     </style>
 </head>
-<body>    
+
+<body>
+    <?php include '../includes/home_navbar.php'; ?>
     <div class="hero-section-small bg-light" data-aos="fade-up">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto text-center">
                     <h1 class="text-success mb-4">Tentang Trash2Cash</h1>
-                    <p class="lead">Platform digital inovatif untuk pengelolaan sampah berbasis insentif yang memudahkan masyarakat berkontribusi dalam menjaga kebersihan lingkungan</p>
+                    <p class="lead">Platform digital inovatif untuk pengelolaan sampah berbasis insentif yang memudahkan
+                        masyarakat berkontribusi dalam menjaga kebersihan lingkungan</p>
                 </div>
             </div>
         </div>
@@ -258,7 +263,9 @@ renderTemplate('home', 'navbar');
                 <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="content-card">
                         <h3 class="mb-4"><i class="fas fa-eye text-success me-2"></i>Visi</h3>
-                        <p>Mewujudkan sistem pengelolaan sampah yang terintegrasi dengan teknologi digital untuk menciptakan lingkungan yang bersih dan berkelanjutan melalui partisipasi aktif masyarakat.</p>
+                        <p>Mewujudkan sistem pengelolaan sampah yang terintegrasi dengan teknologi digital untuk
+                            menciptakan lingkungan yang bersih dan berkelanjutan melalui partisipasi aktif masyarakat.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
@@ -369,12 +376,17 @@ renderTemplate('home', 'navbar');
                 <div class="col-lg-6 mb-4">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
-                            <h4 class="card-title mb-3 text-success"><i class="fas fa-question-circle me-2"></i>Permasalahan</h4>
+                            <h4 class="card-title mb-3 text-success"><i
+                                    class="fas fa-question-circle me-2"></i>Permasalahan</h4>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-transparent">Bagaimana meningkatkan kesadaran masyarakat dalam memilah dan mendaur ulang sampah secara efektif?</li>
-                                <li class="list-group-item bg-transparent">Bagaimana memanfaatkan teknologi digital untuk memberikan insentif kepada masyarakat?</li>
-                                <li class="list-group-item bg-transparent">Bagaimana menciptakan sistem drop point yang terintegrasi dan mudah diakses oleh masyarakat?</li>
-                                <li class="list-group-item bg-transparent">Bagaimana membangun kerja sama dengan mitra pengelola sampah?</li>
+                                <li class="list-group-item bg-transparent">Bagaimana meningkatkan kesadaran masyarakat
+                                    dalam memilah dan mendaur ulang sampah secara efektif?</li>
+                                <li class="list-group-item bg-transparent">Bagaimana memanfaatkan teknologi digital
+                                    untuk memberikan insentif kepada masyarakat?</li>
+                                <li class="list-group-item bg-transparent">Bagaimana menciptakan sistem drop point yang
+                                    terintegrasi dan mudah diakses oleh masyarakat?</li>
+                                <li class="list-group-item bg-transparent">Bagaimana membangun kerja sama dengan mitra
+                                    pengelola sampah?</li>
                             </ul>
                         </div>
                     </div>
@@ -383,7 +395,9 @@ renderTemplate('home', 'navbar');
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <h4 class="card-title mb-3 text-success"><i class="fas fa-lightbulb me-2"></i>Tantangan</h4>
-                            <p>Di Indonesia, sekitar 68,5 juta ton sampah dihasilkan setiap tahunnya, dengan sampah plastik menyumbang 17% dari total tersebut (KLHK, 2023). Tantangan utama terletak pada:</p>
+                            <p>Di Indonesia, sekitar 68,5 juta ton sampah dihasilkan setiap tahunnya, dengan sampah
+                                plastik menyumbang 17% dari total tersebut (KLHK, 2023). Tantangan utama terletak pada:
+                            </p>
                             <ul>
                                 <li>Rendahnya kesadaran masyarakat tentang pemilahan sampah</li>
                                 <li>Kurangnya infrastruktur pendukung pengolahan sampah</li>
@@ -403,7 +417,7 @@ renderTemplate('home', 'navbar');
             <h2 class="section-title">Dampak Program</h2>
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="img/impact-image.jpg" alt="Dampak Program" class="img-fluid rounded-3 shadow">
+                    <img src="../assets/images/hero.png" alt="Dampak Program" class="img-fluid rounded-3 shadow">
                 </div>
                 <div class="col-md-6">
                     <div class="impact-list">
@@ -436,12 +450,17 @@ renderTemplate('home', 'navbar');
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
-                            <h3 class="card-title text-success mb-4"><i class="fas fa-bullseye me-2"></i>Tujuan Kegiatan</h3>
+                            <h3 class="card-title text-success mb-4"><i class="fas fa-bullseye me-2"></i>Tujuan Kegiatan
+                            </h3>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-transparent">Meningkatkan kesadaran masyarakat dalam memilah dan mendaur ulang sampah</li>
-                                <li class="list-group-item bg-transparent">Meningkatkan partisipasi masyarakat dalam memilah</li>
-                                <li class="list-group-item bg-transparent">Menciptakan sistem drop point yang mudah diakses oleh masyarakat</li>
-                                <li class="list-group-item bg-transparent">Mengidentifikasi dan menjalin kemitraan dengan bank sampah, perusahaan daur ulang, dan pihak terkait</li>
+                                <li class="list-group-item bg-transparent">Meningkatkan kesadaran masyarakat dalam
+                                    memilah dan mendaur ulang sampah</li>
+                                <li class="list-group-item bg-transparent">Meningkatkan partisipasi masyarakat dalam
+                                    memilah</li>
+                                <li class="list-group-item bg-transparent">Menciptakan sistem drop point yang mudah
+                                    diakses oleh masyarakat</li>
+                                <li class="list-group-item bg-transparent">Mengidentifikasi dan menjalin kemitraan
+                                    dengan bank sampah, perusahaan daur ulang, dan pihak terkait</li>
                             </ul>
                         </div>
                     </div>
@@ -451,10 +470,14 @@ renderTemplate('home', 'navbar');
                         <div class="card-body">
                             <h3 class="card-title text-success mb-4"><i class="fas fa-file-alt me-2"></i>Luaran</h3>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-transparent">Laporan kemajuan pengembangan aplikasi Trash2Cash</li>
-                                <li class="list-group-item bg-transparent">Laporan akhir implementasi dan evaluasi efektivitas sistem</li>
-                                <li class="list-group-item bg-transparent">Desain aplikasi dengan fitur utama: pendaftaran, drop point, QR code, dan penukaran poin</li>
-                                <li class="list-group-item bg-transparent">Akun media sosial sebagai platform edukasi dan promosi</li>
+                                <li class="list-group-item bg-transparent">Laporan kemajuan pengembangan aplikasi
+                                    Trash2Cash</li>
+                                <li class="list-group-item bg-transparent">Laporan akhir implementasi dan evaluasi
+                                    efektivitas sistem</li>
+                                <li class="list-group-item bg-transparent">Desain aplikasi dengan fitur utama:
+                                    pendaftaran, drop point, QR code, dan penukaran poin</li>
+                                <li class="list-group-item bg-transparent">Akun media sosial sebagai platform edukasi
+                                    dan promosi</li>
                             </ul>
                         </div>
                     </div>
@@ -463,8 +486,7 @@ renderTemplate('home', 'navbar');
         </div>
     </section>
 
-    <!-- JavaScript Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Scripts -->\
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
@@ -472,17 +494,17 @@ renderTemplate('home', 'navbar');
             duration: 800,
             once: true
         });
-        
+
         // Animate statistics counter
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const countElements = document.querySelectorAll('.stat-number');
-            
+
             countElements.forEach(item => {
                 const target = parseInt(item.getAttribute('data-target'));
                 const duration = 2000; // 2 seconds
                 const step = target / duration * 10; // Update every 10ms
                 let current = 0;
-                
+
                 const counter = setInterval(() => {
                     current += step;
                     if (current >= target) {
@@ -495,9 +517,10 @@ renderTemplate('home', 'navbar');
             });
         });
     </script>
-    
+
     <?php
-    renderTemplate('home', 'footer');
+    include '../includes/home_footer.php';
     ?>
 </body>
+
 </html>
