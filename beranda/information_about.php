@@ -1,7 +1,10 @@
 <?php
 // Path relatif yang benar ke template_engine.php
 include_once '../libs/template_engine.php';
+
+renderTemplate('home', 'navbar');
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -236,9 +239,7 @@ include_once '../libs/template_engine.php';
         }
     </style>
 </head>
-<body>
-    <?php include '../includes/home_navbar.php'; ?>
-    
+<body>    
     <div class="hero-section-small bg-light" data-aos="fade-up">
         <div class="container">
             <div class="row">
@@ -495,6 +496,8 @@ include_once '../libs/template_engine.php';
         });
     </script>
     
-    <?php include '../includes/user_footer.php'; ?>
+    <?php
+    renderTemplate('home', 'footer');
+    ?>
 </body>
 </html>
