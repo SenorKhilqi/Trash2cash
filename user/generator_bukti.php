@@ -26,9 +26,10 @@ $user_row = $user_result->fetch_assoc();
 $user_id = $user_row['id'];
 
 // Ambil data laporan
-$query = "SELECT l.*, u.username 
+$query = "SELECT l.*, u.username, k.nama_kategori as kategori
           FROM laporan_sampah l 
           JOIN users u ON l.user_id = u.id 
+          JOIN kategori_sampah k ON l.kategori_id = k.id
           WHERE l.id = ? AND l.user_id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("ii", $laporan_id, $user_id);

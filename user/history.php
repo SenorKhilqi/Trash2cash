@@ -469,11 +469,10 @@ renderTemplate('user', 'navbar');
                             <span class="status-waiting">Menunggu</span>
                         <?php endif; ?>
                     </td>
-                    <td><strong><?= htmlspecialchars($row['total_point']) ?></strong></td>
-                    <td>
+                    <td><strong><?= htmlspecialchars($row['total_point']) ?></strong></td>                    <td>
                         <?php if (!empty($row['foto'])): ?>
-                            <img class="thumbnail" src="uploads/<?= htmlspecialchars($row['foto']) ?>" 
-                                 onclick="window.open('uploads/<?= htmlspecialchars($row['foto']) ?>', '_blank')">
+                            <img class="thumbnail" src="../uploads/<?= htmlspecialchars($row['foto']) ?>" 
+                                 onclick="window.open('../uploads/<?= htmlspecialchars($row['foto']) ?>', '_blank')">
                         <?php else: ?>
                             Tidak ada foto
                         <?php endif; ?>
