@@ -62,26 +62,26 @@ if ($user_row = $user_result->fetch_assoc()) {
     exit();
 }
 
-// Render navbar
-renderTemplate('user', 'navbar');
+// Include the direct sidebar instead of using the template engine
+include_once 'user_sidebar.php';
 ?>
+
+<!-- Main Content Container -->
+<div id="content">
 
 <style>
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f5f5f5;
         margin: 0;
         padding: 0;
         transition: all 0.3s ease;
     }
-    
-    .history-container {
+      .history-container {
         transition: margin-left 0.3s ease;
         padding: 20px;
         margin: 20px;
         width: calc(100% - 40px);
         max-width: 1200px;
-        margin-left: 260px; /* Sesuaikan dengan lebar sidebar */
     }
     
     .history-header {
@@ -510,7 +510,7 @@ renderTemplate('user', 'navbar');
             if (sidebar && sidebar.classList.contains('closed')) {
                 historyContainer.style.marginLeft = '20px';
             } else {
-                historyContainer.style.marginLeft = '260px';
+                historyContainer.style.marginLeft = '0'; // No extra margin needed since we're inside #content
             }
         }
         
@@ -532,7 +532,4 @@ renderTemplate('user', 'navbar');
     });
 </script>
 
-<?php
-// Render footer
-renderTemplate('user', 'footer');
-?>
+</div> <!-- Close content div -->

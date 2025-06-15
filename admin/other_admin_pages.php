@@ -117,7 +117,10 @@ $content = <<<HTML
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-       
+    body {
+        font-family: Times New Roman;
+        background-color: #f8f9fa;
+    } 
     </style>
 </head>
 <body>
@@ -265,9 +268,6 @@ foreach ($data['users_data'] as $user) {
                                     <td>{$user['total_point']}</td>
                                     <td><span class="badge bg-{$status_class}">{$user['status']}</span></td>
                                     <td>
-                                        <a href="edit_user.php?id={$user['id']}" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
                                         <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{$user['id']}">
                                             <i class="fas fa-trash"></i> Hapus
                                         </a>

@@ -66,27 +66,26 @@ if ($user_row = $user_result->fetch_assoc()) {
     exit();
 }
 
-$role = $_SESSION['role'] ?? 'user'; // default ke user jika tidak ada
-renderTemplate($role, 'navbar');
+// Include the direct sidebar instead of using the template engine
+include_once 'user_sidebar.php';
 ?>
+
+<!-- Main Content Container -->
+<div id="content">
 
 <style>
     /* CSS untuk Dashboard User */
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f5f5f5;
         margin: 0;
         padding: 0;
         transition: all 0.3s ease;
-    }
-
-    .dashboard-container {
+    }    .dashboard-container {
         transition: margin-left 0.3s ease;
         padding: 20px;
         margin: 20px;
         width: calc(100% - 40px);
         max-width: 1200px;
-        margin-left: 260px; /* Sesuaikan dengan lebar sidebar */
     }
 
     .dashboard-header {
@@ -386,12 +385,12 @@ renderTemplate($role, 'navbar');
         const sidebar = document.getElementById('sidebar');
         const dashboardContainer = document.querySelector('.dashboard-container');
         
-        // Fungsi untuk memeriksa status sidebar dan menyesuaikan margin container
+        // Fungsi untuk menyesuaikan margin container berdasarkan status sidebar
         function adjustContainerMargin() {
             if (sidebar && sidebar.classList.contains('closed')) {
                 dashboardContainer.style.marginLeft = '20px';
             } else {
-                dashboardContainer.style.marginLeft = '260px';
+                dashboardContainer.style.marginLeft = '0'; // No extra margin needed since we're inside #content
             }
         }
         
@@ -410,18 +409,8 @@ renderTemplate($role, 'navbar');
             
             observer.observe(sidebar, { attributes: true });
         }
-        
-        // Tambahkan listener untuk tombol toggle di navbar
-        const toggleBtn = document.getElementById('toggle-btn');
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', function() {
-                // Sidebar toggle dilakukan pada file navbar, kita hanya perlu memastikan
-                // margin dashboard container diatur dengan benar lewat observer di atas
-            });
-        }
     });
 </script>
 
-<?php
-renderTemplate($role, 'footer');
-?>
+</div> <!-- Close content div -->
+

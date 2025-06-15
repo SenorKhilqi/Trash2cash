@@ -386,9 +386,9 @@ $role = $_SESSION['role'] ?? 'user'; // default ke user jika tidak ada
         }
     </style>
 </head>
-<body>
-    <?php renderTemplate($role, 'navbar'); ?>
+<body>    <?php include_once 'user_sidebar.php'; ?>
     
+    <div id="content">
     <div class="admin-content">
         <h1 class="page-title">Profil Pengguna</h1>
         
@@ -600,7 +600,6 @@ $role = $_SESSION['role'] ?? 'user'; // default ke user jika tidak ada
             }, 5000);
         });
     </script>
-    
-    <?php renderTemplate($role, 'footer'); ?>
+      </div> <!-- Close content div -->
 </body>
 </html>

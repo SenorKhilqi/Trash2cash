@@ -221,11 +221,10 @@ $tanggal_cetak = date('d-m-Y H:i');
         </div>
         <?php endif; ?>
     </div>
-    
-    <?php if (!empty($row['foto'])): ?>
+      <?php if (!empty($row['foto'])): ?>
     <div class="info-section photo-section">
         <h2>Bukti Foto</h2>
-        <img src="uploads/<?= htmlspecialchars($row['foto']) ?>" alt="Bukti Foto">
+        <img src="../uploads/<?= htmlspecialchars($row['foto']) ?>" alt="Bukti Foto">
     </div>
     <?php endif; ?>
     

@@ -87,25 +87,25 @@ if ($user_row = $user_result->fetch_assoc()) {
     exit();
 }
 
-// Render navbar
-renderTemplate('user', 'navbar');
+// Include the direct sidebar instead of using the template engine
+include_once 'user_sidebar.php';
 ?>
+
+<!-- Main Content Container -->
+<div id="content">
 
 <style>
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f5f5f5;
         margin: 0;
         padding: 0;
     }
-    
-    .exchange-container {
+      .exchange-container {
         transition: margin-left 0.3s ease;
         padding: 20px;
         margin: 20px;
         width: calc(100% - 40px);
         max-width: 1200px;
-        margin-left: 260px; /* Sesuaikan dengan lebar sidebar */
     }
     
     .alert {
@@ -431,12 +431,11 @@ renderTemplate('user', 'navbar');
         const sidebar = document.getElementById('sidebar');
         const exchangeContainer = document.querySelector('.exchange-container');
         
-        // Fungsi untuk menyesuaikan margin container berdasarkan status sidebar
-        function adjustContainerMargin() {
+        // Fungsi untuk menyesuaikan margin container berdasarkan status sidebar        function adjustContainerMargin() {
             if (sidebar && sidebar.classList.contains('closed')) {
                 exchangeContainer.style.marginLeft = '20px';
             } else {
-                exchangeContainer.style.marginLeft = '260px';
+                exchangeContainer.style.marginLeft = '0'; // No extra margin needed since we're inside #content
             }
         }
         
@@ -458,7 +457,4 @@ renderTemplate('user', 'navbar');
     });
 </script>
 
-<?php
-// Render footer
-renderTemplate('user', 'footer');
-?>
+</div> <!-- Close content div -->

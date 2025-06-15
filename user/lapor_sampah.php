@@ -80,25 +80,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_query->close();
 }
 
-// Render navbar
-renderTemplate('user', 'navbar');
+// Include the direct sidebar instead of using the template engine
+include_once 'user_sidebar.php';
 ?>
+
+<!-- Main Content Container -->
+<div id="content">
 
 <style>
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f5f5f5;
         margin: 0;
         padding: 0;
     }
-    
-    .report-container {
+      .report-container {
         transition: margin-left 0.3s ease;
         padding: 20px;
         margin: 20px;
         width: calc(100% - 40px);
         max-width: 800px;
-        margin-left: 260px;
     }
     
     .form-card {
@@ -330,8 +330,7 @@ renderTemplate('user', 'navbar');
                 fileContainer.style.borderColor = '#ddd';
             }
         });
-        
-        // Sesuaikan container margin berdasarkan status sidebar
+          // Sesuaikan container margin berdasarkan status sidebar
         const sidebar = document.getElementById('sidebar');
         const reportContainer = document.querySelector('.report-container');
         
@@ -339,7 +338,7 @@ renderTemplate('user', 'navbar');
             if (sidebar && sidebar.classList.contains('closed')) {
                 reportContainer.style.marginLeft = '20px';
             } else {
-                reportContainer.style.marginLeft = '260px';
+                reportContainer.style.marginLeft = '0'; // No extra margin since we're inside #content
             }
         }
         
@@ -356,8 +355,7 @@ renderTemplate('user', 'navbar');
                 });
             });
             
-            observer.observe(sidebar, { attributes: true });
-        }
+            observer.observe(sidebar, { attributes: true });}
         
         // Set tanggal hari ini sebagai default hanya jika belum dipilih
         const tanggalInput = document.getElementById('tanggal');
@@ -371,7 +369,4 @@ renderTemplate('user', 'navbar');
     });
 </script>
 
-<?php
-// Render footer
-renderTemplate('user', 'footer');
-?>
+</div> <!-- Close content div -->

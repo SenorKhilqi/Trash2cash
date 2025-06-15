@@ -53,14 +53,17 @@ $role = $_SESSION['role'] ?? 'user';
 <!DOCTYPE html>
 <html lang="id">
 
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kartu Anggota - Trash2Cash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        /* Admin content with sidebar integration */
+    <style>        /* Admin content with sidebar integration */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
         .admin-content {
             transition: margin-left 0.3s ease, width 0.3s ease;
             padding: 20px;
@@ -70,13 +73,13 @@ $role = $_SESSION['role'] ?? 'user';
 
         @media (min-width: 768px) {
             .admin-content {
-                width: calc(100% - 270px);
-                margin-left: 260px;
+                width: calc(100% - 30px);
+                margin-left: 0;
             }
-
+            
             body.sidebar-closed .admin-content {
                 width: calc(100% - 30px);
-                margin-left: 20px;
+                margin-left: 0;
             }
         }
 
@@ -316,7 +319,9 @@ $role = $_SESSION['role'] ?? 'user';
 </head>
 
 <body>
-    <?php renderTemplate($role, 'navbar'); ?>
+    <?php include_once 'user_sidebar.php'; ?>
+    
+    <div id="content">
 
     <div class="admin-content">
         <h1 class="page-title">Kartu Anggota Trash2Cash</h1>
@@ -418,9 +423,7 @@ $role = $_SESSION['role'] ?? 'user';
             // Update on window resize too
             window.addEventListener('resize', updateContentLayout);
         });
-    </script>
-
-    <?php renderTemplate($role, 'footer'); ?>
+    </script>    </div> <!-- Close content div -->
 </body>
 
 </html>
